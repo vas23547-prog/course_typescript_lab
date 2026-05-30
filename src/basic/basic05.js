@@ -6,9 +6,18 @@
   от 75 до 89 включительно → оценка "хорошо"
   90 и выше → оценка "отлично"
 */
-
+// Функция возвращает оценку по баллам с использованием switch
 export function grade_student(score) {
-  return 'неудовлетворительно'
+  switch (true) {
+    case score >= 90:
+      return 'отлично'
+    case score >= 75:
+      return 'хорошо'
+    case score >= 60:
+      return 'удовлетворительно'
+    default:
+      return 'неудовлетворительно'
+  }
 }
 
 
