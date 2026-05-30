@@ -2,10 +2,16 @@
 	Реализовать функцию find, которая принимает массив и функцию-callback. Функция-callback должна принмать элемент массива и возвращать true, если элемент должен быть включен в новый массив, и false в противном случае.
 	Функция find должна вернуть первый элемент массива, для которого функция-callback возвращает true, и undefined в противном случае. Метод массивов find использовать нельзя.
 */
-
+// Функция find возвращает первый подходящий элемент
 export function find(arr, callback) {
-
-    return undefined;
+  let i = 0
+  while (i < arr.length) {
+    if (callback(arr[i])) {
+      return arr[i]
+    }
+    i++
+  }
+  return undefined
 }
 
 
