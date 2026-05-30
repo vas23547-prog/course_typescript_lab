@@ -3,7 +3,16 @@
 	Подсказка: для проверки символа можно использовать константу 
 	const allowed = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ';
 */
-
+// Функция удаляет специальные символы, оставляя только буквы и пробелы
 export function strip_special_chars(text) {
-	return "";
+  const allowed = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ '
+  let result = ''
+  let i = 0
+  while (i < text.length) {
+    if (allowed.includes(text[i])) {
+      result += text[i]
+    }
+    i++
+  }
+  return result
 }
