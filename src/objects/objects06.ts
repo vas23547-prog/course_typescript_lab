@@ -1,4 +1,4 @@
-/* 	
+/*
 	В объекте user создать метод equal, который будет проверять структурное равенство объектов. При передачи аргументов метод должен возвращать копию объекта с новыми значениями свойств. 
 */
 
@@ -13,7 +13,9 @@ export const user: User = {
   name: "John",
   age: 30,
   role: ["admin", "user"],
-  equal(other: User) {	
-	return true
+  equal(other: User) {
+	return this.name === other.name && this.age === other.age && 
+	  this.role.length === other.role.length && 
+	  this.role.every((r, i) => r === other.role[i])
   },
 };
