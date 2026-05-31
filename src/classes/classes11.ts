@@ -21,6 +21,14 @@ export class Collection<T extends { equals(other: T): boolean }> {
   }
 
   count(item: T): number {
-    
+	let cnt = 0
+	let i = 0
+	while (i < this.items.length) {
+	  if (this.items[i].equals(item)) {
+		cnt++
+	  }
+	  i++
+	}
+	return cnt
   }
 }
