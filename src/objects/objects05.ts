@@ -14,7 +14,11 @@ export const user: User = {
   age: 30,
   role: ["admin", "user"],
   copy(name?: string, age?: number, role?: string[]): User {
-    return this;
-
+	return {
+	  name: name !== undefined ? name : this.name,
+	  age: age !== undefined ? age : this.age,
+	  role: role !== undefined ? [...role] : [...this.role],
+	  copy: this.copy
+	}
   },
 };
