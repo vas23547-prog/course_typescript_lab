@@ -1,4 +1,4 @@
-/* 
+/*
 	Разработать класс Logger, содержащий статическое свойство logLevel, определяющее уровень логирования ("INFO", "WARNING", "ERROR") и статическим методом, позволяющим установить уровень логирования. Реализуйте статический метод logMessage, возращающий строку с указанием текущего уровня и сообщением (например, "[INFO] Test message").
 */
 
@@ -12,7 +12,7 @@ export class Logger {
     }
 
     public static logMessage(message: string): string {
-
+	return `[${Logger.logLevel}] ${message}`
     }
 }
 
