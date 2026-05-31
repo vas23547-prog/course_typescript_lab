@@ -20,6 +20,11 @@ export const user: User = {
   age: 30,
   address: { street: "Main Street", building: 123 },
   copy(name?: string, age?: number, address?: Address) {
-    return this;
+	return {
+	  name: name !== undefined ? name : this.name,
+	  age: age !== undefined ? age : this.age,
+	  address: address !== undefined ? address : { ...this.address },
+	  copy: this.copy
+	}
   },
 };
