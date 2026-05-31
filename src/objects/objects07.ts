@@ -7,6 +7,13 @@ export type Comparable = {
 }
 
 export function maxOf<T extends Comparable>(a: T[]): T {
-	return a[0];
-	
+	let max = a[0]
+	let i = 1
+	while (i < a.length) {
+		if (a[i].greaterThan(max)) {
+			max = a[i]
+		}
+		i++
+	}
+	return max
 }
