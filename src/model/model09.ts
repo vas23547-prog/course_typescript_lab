@@ -12,11 +12,13 @@ export abstract class Shape {
 
 export class Circle extends Shape {
   radius: number;
-  
+  area: number;
+
   constructor(radius: number) {
-    super();
-    this.radius = radius;
+    super()
+    this.radius = radius
+    this.area = Math.PI * radius * radius
   }
-  
+
 }
 
