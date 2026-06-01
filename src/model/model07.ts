@@ -11,5 +11,10 @@ interface Diveable {
 }
 
 export class Duck implements Swimmable, Diveable {
-
+  swim(): void {
+	  console.log("Duck is swimming")
+  }
+  dive(): void {
+	  console.log("Duck is diving")
+  }
 }
