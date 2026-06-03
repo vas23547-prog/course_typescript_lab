@@ -6,4 +6,10 @@ import { fetchUser, fetchUserData, fetchUserPosts, fetchUserSettings } from "./p
 
 export function getAllUserInfo(id: number): Promise<Array<PromiseSettledResult<any>>> {
   // TODO: Использовать Promise.allSettled для получения всех результатов
+  return Promise.allSettled([
+    fetchUser(id),
+    fetchUserData(id),
+    fetchUserPosts(id),
+    fetchUserSettings(id)
+  ]);
 }
