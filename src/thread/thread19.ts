@@ -6,5 +6,13 @@ import { fetchUser, type User } from "./promises";
 
 export function fetchUserWithTimeout(id: number, timeout = 100): Promise<User> {
   // TODO: Добавить таймаут для промиса
-
+  let timeoutId: NodeJS.Timeout;
+  const timeoutPromise = new Promise<never>((_, reject) => {
+    timeoutId = setTimeout(() => reject(new Error("Request timeout")), timeout);
+  });
+  
+  return Promise.race([
+    fetchUser(id).finally(() => clearTimeout(timeoutId)),
+    timeoutPromise
+  ]);
 }
