@@ -6,11 +6,14 @@ import type { Result } from "neverthrow";
 import { parseNumber } from "./fornever";
 
 interface AppError {
-	message: string;
-	code: number;
+  message: string;
+  code: number;
 }
 
 export const parseNumberWithDetailedError = (input: string): Result<number, AppError> => {
-	return parseNumber(input)
-	// Ваш код здесь (3-5 строк)
+  return parseNumber(input)
+	.mapErr(error => ({
+	  message: `Parse error: ${error}`,
+	  code: 400
+	}));
 }
