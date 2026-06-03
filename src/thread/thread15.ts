@@ -7,4 +7,5 @@ import { fetchUser, fetchUserData, type User } from "./promises";
 
 export function getFastestUserData(id: number): Promise<User> {
   // TODO: Использовать Promise.race для получения самого быстрого результата
+  return Promise.race([fetchUser(id), fetchUserData(id)]);
 }
